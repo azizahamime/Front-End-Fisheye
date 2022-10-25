@@ -59,17 +59,34 @@ export function displayCarrousel () {
 					elementFocus();
 				}
 			});
+
+			/**
+			 * @param {KeyboardEvent} e aller au media précédente en cliquant sur entre quand le focus est sur la fléshe gauche
+			 */
 			prevBtn.addEventListener("keydown",(e)=>{
 				if (e.key === "Enter"){
 					prevFig();
 				}
 			});
+
+			/**
+			 * @param {KeyboardEvent} e aller au media suivante en cliquant sur entre quand le focus est sur la fléshe droite
+			 */
 			nextBtn.addEventListener("keydown",(e) =>{
 				if (e.key === "Enter"){
 					nextFig();
 				}
 			});
 
+			/**
+			 * @param {KeyboardEvent} e fermer la modale en cliquand sur enter quand le foxus est sur la croix
+			 */
+			closeLightBox.addEventListener("keydown",(e)=>{
+				if (e.key === "Enter"){
+					close();
+				}
+
+			});
 
 			/**
 			 * @param {KeyboardEvent} e ouvrir la lightbox avec la touche enter
