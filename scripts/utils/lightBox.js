@@ -51,14 +51,25 @@ export function displayCarrousel () {
 			 */
 			document.addEventListener("keydown", (e) => {
 				if (e.key === "ArrowRight") {
-					elementFocus();
 					nextFig();
+					elementFocus();
 				} 
 				if (e.key === "ArrowLeft") {
 					prevFig();
-
+					elementFocus();
 				}
 			});
+			prevBtn.addEventListener("keydown",(e)=>{
+				if (e.key === "Enter"){
+					prevFig();
+				}
+			});
+			nextBtn.addEventListener("keydown",(e) =>{
+				if (e.key === "Enter"){
+					nextFig();
+				}
+			});
+
 
 			/**
 			 * @param {KeyboardEvent} e ouvrir la lightbox avec la touche enter
@@ -76,7 +87,7 @@ export function displayCarrousel () {
 		lightBox.style.display = "block";
 		lightBox.ariaHidden = false;
 		main.ariaHidden = true;
-		closeLightBox.focus();
+		elementFocus();
 	}
 
 	// Naviguer dans la lightbox avec le clavier 'touch tab'
@@ -84,9 +95,9 @@ export function displayCarrousel () {
 		let focusableElements = lightBox.querySelectorAll("div#center,#prev,#next,#close");
 		focusableElements = Array.prototype.slice.call(focusableElements);
 		console.log(focusableElements);
+		closeLightBox.focus();
 		let firstElement = focusableElements[0];
 		let lastElement = focusableElements[focusableElements.length - 1];
-		firstElement.focus();
 		lightBox.addEventListener("keydown",trapTabKey);
 		function trapTabKey(e) {
 			if (e.key === "Tab"){
