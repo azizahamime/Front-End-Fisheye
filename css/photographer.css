@@ -295,6 +295,5 @@ svg{
     object-fit: fill;
 }
 [aria-hidden="true"]{
-    visibility: none;
-    opacity: 0;
+ display: none;
 }
