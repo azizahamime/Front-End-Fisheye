@@ -111,7 +111,6 @@ export function displayCarrousel () {
 	function elementFocus() {
 		let focusableElements = lightBox.querySelectorAll("div#center,#prev,#next,#close");
 		focusableElements = Array.prototype.slice.call(focusableElements);
-		console.log(focusableElements);
 		closeLightBox.focus();
 		let firstElement = focusableElements[0];
 		let lastElement = focusableElements[focusableElements.length - 1];
