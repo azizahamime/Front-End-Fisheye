@@ -171,7 +171,7 @@ figure img{
     justify-content: space-between;
     align-items: center;
     padding:15px 0;
-    font-weight: 400;
+    font-weight: 400 !important;
     font-size: 22px !important;
     line-height: 31px;
     color: #911C1C;
@@ -258,6 +258,10 @@ footer{
     position:fixed ;
     top: 50%;
     margin-top: -14px;
+}
+svg{
+    width:40px;
+    height: 40px;
 }
 #right{
     text-align: right;
