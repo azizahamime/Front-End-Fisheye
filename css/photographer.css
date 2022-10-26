@@ -172,7 +172,7 @@ figure img{
     align-items: center;
     padding:15px 0;
     font-weight: 400;
-    font-size: 22px;
+    font-size: 22px !important;
     line-height: 31px;
     color: #911C1C;
 }
@@ -265,7 +265,7 @@ footer{
 #right,#left{
     width: 10%;
 }
-#close{
+#closeLightBox{
     position: fixed;
     top:30px;
     right: 100px;

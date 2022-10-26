@@ -37,7 +37,7 @@ async function photographerHeader(data){
 	photographHeader.append(photographerName);
 
 	// Ajouter la ville a la section
-	let photographAdress = document.createElement("p");
+	let photographAdress = document.createElement("h2");
 	photographAdress.classList.add("city");
 	photographAdress.innerText = `${city} , ${country}`;
 	photographHeader.append(photographAdress);
@@ -51,6 +51,7 @@ async function photographerHeader(data){
 	//Ajouter la photo  a la section
 	let photo = document.createElement("img");
 	photo.src = `assets/photographers/${portrait}`;
+	photo.setAttribute("alt","");
 	photo.tabIndex = "0";
 	photo.role = "presentation";
 	photographPhoto.append(photo);

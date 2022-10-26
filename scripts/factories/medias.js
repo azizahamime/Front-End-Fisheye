@@ -24,7 +24,7 @@ export function getPhotographerMedias(data,photographer){
 			//creer l'image
 			mediap = document.createElement("img");
 			mediap.src = `assets/images/${name[0]}/${image}`;
-			mediap.alt = title;
+			mediap.alt = `${title} photo`;
         
 		}else if(video){
 			// creer la video 
@@ -53,7 +53,7 @@ export function getPhotographerMedias(data,photographer){
 	//ajouter figurecaption 
 	mediaFooter.classList.add("media-footer");
 	mediaFooter.innerHTML = `
-            <p> ${title} </p>
+            <h3> ${title} </h3>
             <p class="likes" tabindex="0"> ${likes} 
                 <span class="fa-stack fa-1x" aria-label="likes">
                     <i class="fa-regular fa-heart  fa-stack-1x "></i>

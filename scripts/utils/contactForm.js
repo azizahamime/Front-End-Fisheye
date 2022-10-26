@@ -1,6 +1,7 @@
 const main = document.querySelector("main");
 const modal = document.getElementById("contact_modal");
 const form = document.querySelector("form");
+const close = document.getElementById("closeModal");
 let focusedElementBeforeModal;
 
 
@@ -27,7 +28,7 @@ function displayModal() {
 	}
 }
 
-// Fermer la modal
+// Fermer la modal la fonction
 function closeModal() {
 	modal.style.display = "none";
 	modal.ariaHidden = true;
@@ -35,13 +36,22 @@ function closeModal() {
 	focusedElementBeforeModal.focus();
 }
 
+/**
+ * @param {keyboardEvent} e Fermer la modal avec le bouton entrer quand le focus est sur la croix
+ */
+close.addEventListener("keydown", (e)=>{
+	if (e.key === "Enter"){
+		closeModal();
+	}
+});
+
 /***
  * @param {KeyboardEvent} e fermer la modal via la touche escape
 */
 modal.addEventListener("keydown",(e)=>{
 	if(e.key === "Escape"){
 		closeModal();
-	}
+	}	
 });
 
 /**

@@ -25,7 +25,7 @@ export function photographerFactory(data) {
 		// creer l'image
 		const image = document.createElement("img");
 		image.src = `./${picture}`;
-		image.alt =" ";
+		image.alt = `photo de ${name}`;
 		link.append(image);
 
 		// creer le nom

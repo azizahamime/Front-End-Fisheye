@@ -25,7 +25,6 @@ export function sommeLikes(){
 			divNbrLikes.innerHTML ="";
 			divNbrLikes.innerHTML = `${nbrLikes} <i class="fa-sharp fa-solid fa-heart"></i>  `;
 		}else{
-			console.log(ele);
 			ele.innerHTML =` 
 									${(parseInt(ele.innerText))+1} 
 											<span class="fa-stack fa-1x">

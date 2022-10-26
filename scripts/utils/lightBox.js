@@ -6,7 +6,7 @@ export function displayCarrousel () {
 	const media = document.querySelectorAll("figure a");
 	const prevBtn = document.getElementById("prev");
 	const nextBtn = document.getElementById("next");
-	const closeLightBox = document.getElementById("close");
+	const closeLightBox = document.getElementById("closeLightBox");
 	media.forEach((ele, index) => {
 		ele.ariaHasPopup = "carrousel";
 		ele.addEventListener("click", function () {
