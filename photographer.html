@@ -31,8 +31,8 @@
 					<label for="filter"> Trier par </label>
 					<select id="filter">
 						<option value="popularite" >Popularité</option>
-						<option value="date">Date</option>
-						<option value="title" selected>Titre</option>
+						<option value="date" selected>Date</option>
+						<option value="title" >Titre</option>
 					</select>
 				</div>
 				<div class="photograph-works--articles" tabindex="0" aria-label="Liste des medias du photographe"></div>
@@ -44,7 +44,7 @@
 			<div class="carrousel-content">
 				<div id="left">
 					<!--<i class="fa-solid fa-angle-left "  id="prev" role="link" aria-label="media précedente" tabindex="0"></i>-->
-					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" id="prev" role="link" aria-label="media précedent" tabindex="0">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" id="prev" role="link" aria-label="media précédant" tabindex="0">
 						<path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/>
 					</svg>
 					
@@ -73,7 +73,7 @@
 			<div class="modal">
 				<header >
 					<h2 tabindex="0" id="modalTitle">Contactez - moi <span id="photographerName"></span></h2>
-					<img src="assets/icons/close.svg" onclick="closeModal()" alt="" aria-label="fermer" title="fermer cette fenétre "tabindex="0" id="closeModal">
+					<img src="assets/icons/close.svg" id="closeModal" onclick="closeModal()" alt="" aria-label="fermer" title="fermer cette fenétre "tabindex="0" >
 				</header>
 				<form novalidate>
 					<div>

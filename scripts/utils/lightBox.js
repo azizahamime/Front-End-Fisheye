@@ -1,16 +1,21 @@
 // Afficher la lightbox 
 export function displayCarrousel () {
+
 	const lightBox = document.getElementById("carrousel");
 	const main = document.querySelector("main");
 	const carrousel = document.getElementById("center");
 	const media = document.querySelectorAll("figure a");
 	const prevBtn = document.getElementById("prev");
 	const nextBtn = document.getElementById("next");
+	const header = document.querySelector("header");
+	const footer = document.querySelector("footer");
+	let focusedElementBeforeModal;
 	const closeLightBox = document.getElementById("closeLightBox");
+
 	media.forEach((ele, index) => {
 		ele.ariaHasPopup = "carrousel";
-		ele.addEventListener("click", function () {
-			// e.preventDefault();
+		ele.addEventListener("click", function (e) {
+			e.preventDefault();
 			openLightBox();
 			carrousel.innerHTML = "";
 			const mediaClone = ele.cloneNode(true);
@@ -53,10 +58,12 @@ export function displayCarrousel () {
 				if (e.key === "ArrowRight") {
 					nextFig();
 					elementFocus();
+					//e.preventDefault();
 				} 
 				if (e.key === "ArrowLeft") {
 					prevFig();
 					elementFocus();
+					//e.preventDefault();
 				}
 			});
 
@@ -101,28 +108,49 @@ export function displayCarrousel () {
 	
 	// Ouvrir la light box la fonction
 	function openLightBox () {
-		lightBox.style.display = "block";
+		focusedElementBeforeModal = document.activeElement;
+		lightBox.style = "display:flex; justify-content:center; align-items:center";
 		lightBox.ariaHidden = false;
 		main.ariaHidden = true;
+		header.ariaHidden = true;
+		footer.ariaHidden = true;
 		elementFocus();
 	}
 
 	// Naviguer dans la lightbox avec le clavier 'touch tab'
 	function elementFocus() {
-		let focusableElements = lightBox.querySelectorAll("div#center,#prev,#next,#close");
+		let focusableElements = lightBox.querySelectorAll("#center, #prev, #next, #closeLightBox");
 		focusableElements = Array.prototype.slice.call(focusableElements);
-		closeLightBox.focus();
+		console.log(focusableElements);
+		//closeLightBox.focus();
 		let firstElement = focusableElements[0];
 		let lastElement = focusableElements[focusableElements.length - 1];
+		firstElement.focus();
 		lightBox.addEventListener("keydown",trapTabKey);
 		function trapTabKey(e) {
-			if (e.key === "Tab"){
-				if(document.activeElement === lastElement){
+			/*if(document.activeElement === lastElement){
+				e.preventDefault();
+				firstElement.focus();
+			} */
+			let isTabPressed = e.key === "Tab" ;
+
+			if (!isTabPressed) {
+				return;
+			}
+			
+			if (e.shiftKey) { 
+				if (document.activeElement === firstElement) {
+					lastElement.focus(); 
 					e.preventDefault();
-					firstElement.focus();
-				} 
+				}
+			} else { 
+				if (document.activeElement === lastElement) { 
+					firstElement.focus(); 
+					e.preventDefault();			
+				}
 			}
 		}
+		
 	}
 
 	/*****
@@ -132,6 +160,10 @@ export function displayCarrousel () {
 		lightBox.style.display = "none";
 		lightBox.ariaHidden = true;
 		main.ariaHidden = false;
+		header.ariaHidden = false;
+		footer.ariaHidden = false;
+		focusedElementBeforeModal.focus();
+
 	}
 
 	// Fermer la lightbox avec le click de la souris

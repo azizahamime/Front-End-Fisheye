@@ -18,7 +18,6 @@ export function photographerFactory(data) {
 		//creer ue lien pour chaque article
 		const link = document.createElement("a");
 		link.href = `./photographer.html?id=${id}`;
-		//link.ariaLabelledby = "photographer-name";
 		link.tabIndex = 0;
 		article.append(link);
 
@@ -30,7 +29,7 @@ export function photographerFactory(data) {
 
 		// creer le nom
 		const title = document.createElement("h2");
-		title.innerText = `${name} `;
+		title.innerText = ` ${name} `;
 		title.id = "photographer-name";
 		link.append(title);
 

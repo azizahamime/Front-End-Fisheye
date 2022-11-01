@@ -70,14 +70,15 @@ async function getDataPhotographer(){
 	await photographerHeader(photograph);
 	photographerPrice.innerHTML =`${photograph.price}€ / jour`;
 	photographerPrice.tabIndex = "0";
+
 	//recuperer le nom de photographe dans la modale
 	const photographeName = document.getElementById("photographerName");
 	photographeName.innerText = photograph.name;
 	photographerMedias.forEach(ele =>{
 		getPhotographerMedias(ele,photograph);
-
 	});
-	mediasFilter(photographerMedias,photograph);
+
+	mediasFilter(photographerMedias,photograph); 
 	sommeLikes(photographerMedias,photograph);
 	displayCarrousel();
     

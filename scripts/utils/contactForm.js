@@ -2,15 +2,18 @@ const main = document.querySelector("main");
 const modal = document.getElementById("contact_modal");
 const form = document.querySelector("form");
 const close = document.getElementById("closeModal");
+const header = document.querySelector("header");
+const footer = document.querySelector("footer");
 let focusedElementBeforeModal;
-
 
 // eslint-disable-next-line no-unused-vars
 function displayModal() {
 	focusedElementBeforeModal = document.activeElement;
-	modal.style.display = "block";
-	main.ariaHidden = true;
+	modal.style = "display:flex; justify-content:center; align-items:center";
 	modal.ariaHidden = false;
+	header.ariaHidden = true;
+	main.ariaHidden = true;
+	footer.ariaHidden = true;
 	let focusableElements = modal.querySelectorAll("input:not([disabled]), textarea:not([disabled]), button, [aria-label='fermer']");
 	focusableElements = Array.prototype.slice.call(focusableElements);
 	let firstElement = focusableElements[0];
@@ -32,7 +35,9 @@ function displayModal() {
 function closeModal() {
 	modal.style.display = "none";
 	modal.ariaHidden = true;
+	header.ariaHidden = false;
 	main.ariaHidden = false;
+	footer.ariaHidden = false;
 	focusedElementBeforeModal.focus();
 }
 
@@ -81,6 +86,7 @@ form.addEventListener("submit",(e)=>{
 		form.reset();
 		closeModal();
 	}
+
 	/**
 	 * @param {string} field supprime les messages d'erreurs générer avant 
 	 */
