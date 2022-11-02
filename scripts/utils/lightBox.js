@@ -121,23 +121,16 @@ export function displayCarrousel () {
 	function elementFocus() {
 		let focusableElements = lightBox.querySelectorAll("#center, #prev, #next, #closeLightBox");
 		focusableElements = Array.prototype.slice.call(focusableElements);
-		console.log(focusableElements);
-		//closeLightBox.focus();
+		//console.log(focusableElements);
 		let firstElement = focusableElements[0];
 		let lastElement = focusableElements[focusableElements.length - 1];
 		firstElement.focus();
 		lightBox.addEventListener("keydown",trapTabKey);
 		function trapTabKey(e) {
-			/*if(document.activeElement === lastElement){
-				e.preventDefault();
-				firstElement.focus();
-			} */
 			let isTabPressed = e.key === "Tab" ;
-
 			if (!isTabPressed) {
 				return;
-			}
-			
+			}			
 			if (e.shiftKey) { 
 				if (document.activeElement === firstElement) {
 					lastElement.focus(); 
