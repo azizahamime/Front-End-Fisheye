@@ -9,16 +9,19 @@ export function displayCarrousel () {
 	const nextBtn = document.getElementById("next");
 	const header = document.querySelector("header");
 	const footer = document.querySelector("footer");
-	let focusedElementBeforeModal;
+	let focusedElementBeforeLightBox;
 	const closeLightBox = document.getElementById("closeLightBox");
-
 	media.forEach((ele, index) => {
 		ele.ariaHasPopup = "carrousel";
+
 		ele.addEventListener("click", function (e) {
 			e.preventDefault();
 			openLightBox();
 			carrousel.innerHTML = "";
 			const mediaClone = ele.cloneNode(true);
+			if (mediaClone.firstChild.nodeName === "VIDEO"){
+				mediaClone.firstChild.setAttribute("controls","");
+			}
 			const mediaCloneTitle = ele.nextSibling.cloneNode(true);
 			carrousel.append(mediaClone);
 			carrousel.append(mediaCloneTitle);
@@ -32,6 +35,9 @@ export function displayCarrousel () {
 				}
 				const prevFig = media[--index];
 				const prevFigClone = prevFig.cloneNode(true);
+				if (prevFigClone.firstChild.nodeName === "VIDEO"){
+					prevFigClone.firstChild.setAttribute("controls","");
+				}
 				const prevFigCloneName = prevFig.nextSibling.cloneNode(true);
 				carrousel.innerHTML = "";
 				carrousel.append(prevFigClone);
@@ -45,6 +51,9 @@ export function displayCarrousel () {
 				}
 				const nextFig = media[index++];
 				const nextFigClone = nextFig.cloneNode(true);
+				if (nextFigClone.firstChild.nodeName === "VIDEO"){
+					nextFigClone.firstChild.setAttribute("controls","");
+				}
 				const nextFigCloneName = nextFig.nextSibling.cloneNode(true);
 				carrousel.innerHTML = "";
 				carrousel.append(nextFigClone);
@@ -54,7 +63,7 @@ export function displayCarrousel () {
 			/**
 			 * @param {KeyboardEvent} e afficher les medias suivantes ou précedante avec les fléches droites et gauches de clavier 
 			 */
-			document.addEventListener("keydown", (e) => {
+			lightBox.addEventListener("keydown", (e) => {
 				if (e.key === "ArrowRight") {
 					nextFig();
 					elementFocus();
@@ -108,7 +117,7 @@ export function displayCarrousel () {
 	
 	// Ouvrir la light box la fonction
 	function openLightBox () {
-		focusedElementBeforeModal = document.activeElement;
+		focusedElementBeforeLightBox = document.activeElement;
 		lightBox.style = "display:flex; justify-content:center; align-items:center";
 		lightBox.ariaHidden = false;
 		main.ariaHidden = true;
@@ -155,7 +164,7 @@ export function displayCarrousel () {
 		main.ariaHidden = false;
 		header.ariaHidden = false;
 		footer.ariaHidden = false;
-		focusedElementBeforeModal.focus();
+		focusedElementBeforeLightBox.focus();
 
 	}
 
@@ -165,7 +174,7 @@ export function displayCarrousel () {
 	/****
 	 * @param {KeyboardEvent} e fermer la lightbox avec la touche escape 'clavier'
 	***/
-	document.addEventListener("keydown", (e) => {
+	lightBox.addEventListener("keydown", (e) => {
 		if (e.key === "Escape") {
 			close();
 		}

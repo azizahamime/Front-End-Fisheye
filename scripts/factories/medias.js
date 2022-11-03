@@ -33,7 +33,6 @@ export function getPhotographerMedias(data,photographer){
 			videoTitle.id ="videoTitle";
 			videoTitle.innerText = title;
 			mediap = document.createElement("video");
-			mediap.setAttribute("controls","");
 			mediap.setAttribute("aria-labelledby","videoTitle");
 			mediap.append(videoTitle);
 			mediap.poster = `assets/images/${name[0]}/${poster}.png`;
