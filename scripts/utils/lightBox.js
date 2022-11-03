@@ -118,7 +118,7 @@ export function displayCarrousel () {
 	// Ouvrir la light box la fonction
 	function openLightBox () {
 		focusedElementBeforeLightBox = document.activeElement;
-		lightBox.style = "display:flex; justify-content:center; align-items:center";
+		lightBox.style = "display:flex; justify-content:center; align-items:center;";
 		lightBox.ariaHidden = false;
 		main.ariaHidden = true;
 		header.ariaHidden = true;

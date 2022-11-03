@@ -9,7 +9,7 @@ let focusedElementBeforeModal;
 // eslint-disable-next-line no-unused-vars
 function displayModal() {
 	focusedElementBeforeModal = document.activeElement;
-	modal.style = "display:flex; justify-content:center; align-items:center";
+	modal.style = "display:block; margin: 25vh auto;";
 	modal.ariaHidden = false;
 	header.ariaHidden = true;
 	main.ariaHidden = true;
